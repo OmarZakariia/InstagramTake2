@@ -4,16 +4,25 @@
 target 'Instagram 2' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
+  
   # Pods for Instagram 2
-
+  pod 'Appirater'
+  
+  # Pods for Firebase
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Crashlytics'
+  pod 'Firebase/Storage'
+  
   target 'Instagram 2Tests' do
     inherit! :search_paths
     # Pods for testing
   end
-
+  
   target 'Instagram 2UITests' do
     # Pods for testing
   end
-
+  
 end
