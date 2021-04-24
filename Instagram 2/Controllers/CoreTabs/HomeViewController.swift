@@ -12,13 +12,18 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         handleNotAuthenticated()
+//        
+//        do{
+//            try Auth.auth().signOut()
+//        }
+//        catch {
+//            print("Failed to sign out")
+//        }
     }
     
     //MARK:- Functions

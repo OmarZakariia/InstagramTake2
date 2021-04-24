@@ -212,6 +212,32 @@ class LoginViewController: UIViewController {
             return
         }
         // log in functionality
+        var username: String?
+        var email: String?
+        
+        // check to see if user is using email or username
+        if usernameEmail.contains("@"), usernameEmail.contains("."){
+            // probably will be an email
+            email = usernameEmail
+        }
+        else {
+            // username
+            username = usernameEmail
+        }
+        AuthManager.shared.loginUser(username: username, email: email, password: password) { success in
+            DispatchQueue.main.async {
+                if success {
+                    // user logged in
+                    self.dismiss(animated: true, completion: nil)
+                }
+                else {
+                    // failed to log in user
+                    let alert = UIAlertController(title: "Log in Error", message: "Failed to log you in", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
         
     }
     
@@ -236,7 +262,9 @@ class LoginViewController: UIViewController {
     
     @objc private func didTapCreateAccountButton(){
         let vc = RegisterViewController()
-        present(vc, animated: true)
+        vc.title = "Create Account"
+        present(UINavigationController(rootViewController: vc), animated: true)
+        
     }
 }
 
@@ -245,7 +273,7 @@ extension LoginViewController : UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == usernameEmailField {
             passwordField.becomeFirstResponder() // keyboard pops up
-        } else if textField ==  passwordField{
+        } else if textField ==  passwordField {
             didTapLoginButton()
         }
         return true
