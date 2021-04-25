@@ -6,14 +6,20 @@
 //
 
 import UIKit
+import SafariServices
 /// View controller to show user settings
 final class SettingsViewController: UIViewController {
     
-    //MARK:- Structs
+    //MARK:- Structs and Enums
     struct SettingCellModel {
         let title : String
         let handler : (()->Void)
     }
+    
+    enum SettingsURLType {
+        case terms, privacy, help
+    }
+    
     //MARK:- Variables and constants
     private var data = [[SettingCellModel]]()// 2D dimensional array because I am gonna have multiple sections
     
@@ -24,10 +30,10 @@ final class SettingsViewController: UIViewController {
         
         return tableView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = .systemBackground
         view.addSubview(tableView)
         tableView.delegate = self
@@ -43,14 +49,71 @@ final class SettingsViewController: UIViewController {
     }
     //MARK:- Private functions
     private func configureDataModel(){
-        let section = [
-            SettingCellModel(title: "Log Out"){ [weak self] in
-                // weak self to ensure not to cause a memory leak because I am referencing self
-                self?.didTapLogOut()
-                
-            }
-        ]
-        data.append(section)
+        data.append([SettingCellModel(title: "Edit Profile", handler: { [weak self] in
+            self?.didTapEditProfile()
+            
+        }),
+        SettingCellModel(title: "Invite Friends", handler: { [weak self] in
+            self?.didTapInviteFriends()
+            
+        }),
+        SettingCellModel(title: "Save Original Posts", handler: { [weak self] in
+            self?.didTapSaveOriginalPost()
+            
+        })
+        ])
+        
+        data.append([SettingCellModel(title: "Terms of Service", handler: { [weak self] in
+            self?.openURL(type:.terms)
+        }),
+
+        SettingCellModel(title: "Privacy Policy", handler: { [weak self] in
+            self?.openURL(type: .privacy)
+
+        }),
+
+        SettingCellModel(title: "Help/Feedback", handler: { [weak self] in
+            self?.openURL(type: .help)
+        })
+
+        ])
+
+        data.append([SettingCellModel(title: "Log Out", handler: { [weak self] in
+            self?.didTapLogOut()
+
+        })])
+    }
+    
+    private func openURL(type: SettingsURLType){
+        let urlString : String
+        switch type {
+        case .terms: urlString = "https://www.instagram.com/about/legal/terms/before-january-19-2013/"
+        case .privacy: urlString = "https://help.instagram.com/519522125107875"
+        case .help: urlString = "https://help.instagram.com"
+        }
+        
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        let vc = SFSafariViewController(url: url)
+        present(vc, animated: true)
+    }
+    
+    private func didTapEditProfile(){
+        
+        let vc = EditProfleViewController()
+        vc.title = "Edit Profile"
+        let navVC = UINavigationController(rootViewController: vc)
+        present(navVC, animated: true)
+    }
+    
+    private func didTapInviteFriends(){
+        // Show share sheet to invite friends
+        
+    }
+    
+    private func didTapSaveOriginalPost(){
+        
     }
     
     private func didTapLogOut(){
@@ -85,7 +148,7 @@ final class SettingsViewController: UIViewController {
         // so the action sheet wont crash in iPad because it doesnt know how to behave
         actionSheet.popoverPresentationController?.sourceView = tableView
         actionSheet.popoverPresentationController?.sourceRect = tableView.bounds
-    
+        
         present(actionSheet, animated: true)
     }
     
@@ -104,12 +167,13 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = data[indexPath.section][indexPath.row].title
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         // Handle Cell Selection
-        data[indexPath.row][indexPath.section].handler()
+        data[indexPath.section][indexPath.row].handler()
         
     }
 }
