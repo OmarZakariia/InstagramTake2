@@ -24,9 +24,20 @@ final class ProfileViewController: UIViewController {
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.itemSize = CGSize(width: view.width/3, height: view.width/3) // to be squared cells
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
+        collectionView?.backgroundColor = .red
         collectionView?.delegate = self
         collectionView?.dataSource = self
+        
+        // Cell
+        collectionView?.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.identifier)
+
+        // Header
+        collectionView?.register(ProfileInfoHeaderReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ProfileInfoHeaderReusableView.identifier)
+
+        collectionView?.register(ProfileTablsCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ProfileTablsCollectionReusableView.identifier)
+        
         
         guard let collectionView = collectionView else {
             // guard let because its an optional
@@ -57,11 +68,14 @@ final class ProfileViewController: UIViewController {
 //MARK:- Extension for UICollectionViewDelegate, DataSource and DelegateFlowLayout
 extension ProfileViewController: UICollectionViewDelegate , UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return 30
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as! PhotoCollectionViewCell
+        cell.backgroundColor = .systemBlue
+        
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
