@@ -9,16 +9,10 @@
 import FirebaseStorage
 
 public class StorageManager {
-    
     //MARK:- Enums and Structs
-    public enum UserPostType{
-        case photo, video
-    }
+
     public enum IGStorageManagerError: Error {
         case failedToDownload
-    }
-    public struct UserPost {
-        let postType: UserPostType
     }
     
     //MARK:- Variables and Constants

@@ -29,6 +29,7 @@
 		30785B2F263898BF00F387CE /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30785B2E263898BF00F387CE /* PhotoCollectionViewCell.swift */; };
 		30785B34263898F800F387CE /* ProfileInfoHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30785B33263898F800F387CE /* ProfileInfoHeaderReusableView.swift */; };
 		30785B392638991700F387CE /* ProfileTablsCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30785B382638991700F387CE /* ProfileTablsCollectionReusableView.swift */; };
+		3078DB01263B7DE00044F6E7 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078DB00263B7DE00044F6E7 /* Models.swift */; };
 		3082A44A26276AEE0096D45C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3082A44926276AEE0096D45C /* ListViewController.swift */; };
 		3082A44F26276AFE0096D45C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3082A44E26276AFE0096D45C /* SearchViewController.swift */; };
 		3082A45426276B0D0096D45C /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3082A45326276B0D0096D45C /* SearchResultViewController.swift */; };
@@ -93,6 +94,7 @@
 		30785B2E263898BF00F387CE /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		30785B33263898F800F387CE /* ProfileInfoHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoHeaderReusableView.swift; sourceTree = "<group>"; };
 		30785B382638991700F387CE /* ProfileTablsCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTablsCollectionReusableView.swift; sourceTree = "<group>"; };
+		3078DB00263B7DE00044F6E7 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		3082A44926276AEE0096D45C /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		3082A44E26276AFE0096D45C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		3082A45326276B0D0096D45C /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 		30185A2D26276775003C271A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3078DB00263B7DE00044F6E7 /* Models.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -593,6 +596,7 @@
 				301A40D126276A73001A8EC6 /* SettingsViewController.swift in Sources */,
 				308F14B0263603EE001C6C3E /* IGFeedPostHeaderTableViewCell.swift in Sources */,
 				303E41F0262768EC0064C439 /* CameraViewController.swift in Sources */,
+				3078DB01263B7DE00044F6E7 /* Models.swift in Sources */,
 				303E41F8262769090064C439 /* NotificationViewController.swift in Sources */,
 				30785B162638871B00F387CE /* FormTableViewCell.swift in Sources */,
 				3082A45E26276B360096D45C /* PublishPostViewController.swift in Sources */,
