@@ -121,6 +121,8 @@ extension ProfileViewController: UICollectionViewDelegate , UICollectionViewData
             // tabs header
             let tabsControlHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ProfileTablsCollectionReusableView.identifier, for: indexPath) as! ProfileTablsCollectionReusableView
             
+            tabsControlHeader.delegate = self
+            
             return tabsControlHeader
         }
         
@@ -138,7 +140,7 @@ extension ProfileViewController: UICollectionViewDelegate , UICollectionViewData
 //        return .zero // this returns zero height and zero width
         
         // Size of sections tabs 
-        return CGSize(width: collectionView.width, height: 65)
+        return CGSize(width: collectionView.width, height: 50)
     }
 }
 
@@ -151,7 +153,7 @@ extension ProfileViewController: ProfileInfoHeaderReusableViewDelegate{
     
     func profileHeaderDidTapFollowersButton(_ header: ProfileInfoHeaderReusableView) {
         // show users followers
-        let vc = ListViewController()
+        let vc = ListViewController(data: ["Zakaria", "Zeks", "Ziko"])
         vc.title = "Followrs"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
@@ -159,7 +161,7 @@ extension ProfileViewController: ProfileInfoHeaderReusableViewDelegate{
     
     func profileHeaderDidTapFollowingButton(_ header: ProfileInfoHeaderReusableView) {
         // show users following
-        let vc = ListViewController()
+        let vc = ListViewController(data: ["Zakaria", "Zeks", "Ziko"])
         vc.title = "Following"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
@@ -170,6 +172,19 @@ extension ProfileViewController: ProfileInfoHeaderReusableViewDelegate{
         let vc = EditProfleViewController()
         vc.title = "Edit Profile"
         present(UINavigationController(rootViewController: vc), animated: true)
+    }
+    
+    
+}
+
+//MARK:- ProfileTabsCollectionReusableViewDelegate
+extension ProfileViewController: ProfileTablsCollectionReusableViewDelegate{
+    func didTapGridButtonTab() {
+        // Reload collection view with data
+    }
+    
+    func didTapTaggedButtonTab() {
+        // Reload collection view with data 
     }
     
     
