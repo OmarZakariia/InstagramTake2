@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3015A0B1265128100068419B /* NoNotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3015A0B0265128100068419B /* NoNotificationsView.swift */; };
+		3015A0B726512C110068419B /* FollowEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3015A0B626512C110068419B /* FollowEventTableViewCell.swift */; };
+		3015A0BF26512C240068419B /* LikeEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3015A0BE26512C240068419B /* LikeEventTableViewCell.swift */; };
 		301A40C726276A24001A8EC6 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301A40C626276A24001A8EC6 /* RegisterViewController.swift */; };
 		301A40CC26276A6A001A8EC6 /* EditProfleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301A40CB26276A6A001A8EC6 /* EditProfleViewController.swift */; };
 		301A40D126276A73001A8EC6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301A40D026276A73001A8EC6 /* SettingsViewController.swift */; };
@@ -67,6 +70,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3015A0B0265128100068419B /* NoNotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoNotificationsView.swift; sourceTree = "<group>"; };
+		3015A0B626512C110068419B /* FollowEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowEventTableViewCell.swift; sourceTree = "<group>"; };
+		3015A0BE26512C240068419B /* LikeEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeEventTableViewCell.swift; sourceTree = "<group>"; };
 		301A40C626276A24001A8EC6 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		301A40CB26276A6A001A8EC6 /* EditProfleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfleViewController.swift; sourceTree = "<group>"; };
 		301A40D026276A73001A8EC6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +155,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3015A0B526512BF30068419B /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				3015A0B626512C110068419B /* FollowEventTableViewCell.swift */,
+				3015A0BE26512C240068419B /* LikeEventTableViewCell.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 		30185A2D26276775003C271A /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +179,7 @@
 				308F14A52636022F001C6C3E /* Cells */,
 				305418E62627683C00AA9B68 /* Storyboards */,
 				3039CA8026274776002F5ECF /* Assets.xcassets */,
+				3015A0B0265128100068419B /* NoNotificationsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -294,6 +310,7 @@
 		308F14A52636022F001C6C3E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				3015A0B526512BF30068419B /* Notifications */,
 				308F14AB263603CA001C6C3E /* Home Feed */,
 				30785B152638871B00F387CE /* FormTableViewCell.swift */,
 				30785B2E263898BF00F387CE /* PhotoCollectionViewCell.swift */,
@@ -596,6 +613,7 @@
 				305418EF262768A300AA9B68 /* ExploreViewController.swift in Sources */,
 				3082A44A26276AEE0096D45C /* ListViewController.swift in Sources */,
 				3082A46326276B9C0096D45C /* PostViewController.swift in Sources */,
+				3015A0B1265128100068419B /* NoNotificationsView.swift in Sources */,
 				301A40D126276A73001A8EC6 /* SettingsViewController.swift in Sources */,
 				308F14B0263603EE001C6C3E /* IGFeedPostHeaderTableViewCell.swift in Sources */,
 				303E41F0262768EC0064C439 /* CameraViewController.swift in Sources */,
@@ -609,6 +627,7 @@
 				308F14A726360252001C6C3E /* IGFeedPostTableViewCell.swift in Sources */,
 				30785B2F263898BF00F387CE /* PhotoCollectionViewCell.swift in Sources */,
 				3039CA7C26274774002F5ECF /* HomeViewController.swift in Sources */,
+				3015A0B726512C110068419B /* FollowEventTableViewCell.swift in Sources */,
 				303E4204262769E80064C439 /* LoginViewController.swift in Sources */,
 				3082A45426276B0D0096D45C /* SearchResultViewController.swift in Sources */,
 				308F14BA2636045E001C6C3E /* IGFeedPostGeneralTableViewCell.swift in Sources */,
@@ -619,6 +638,7 @@
 				3082A45926276B2B0096D45C /* PostEditorViewController.swift in Sources */,
 				3039CA7826274774002F5ECF /* AppDelegate.swift in Sources */,
 				308F14B526360438001C6C3E /* IGFeedPostActionsTableViewCell.swift in Sources */,
+				3015A0BF26512C240068419B /* LikeEventTableViewCell.swift in Sources */,
 				301A40CC26276A6A001A8EC6 /* EditProfleViewController.swift in Sources */,
 				3039CA7A26274774002F5ECF /* SceneDelegate.swift in Sources */,
 			);

@@ -153,7 +153,11 @@ extension ProfileViewController: ProfileInfoHeaderReusableViewDelegate{
     
     func profileHeaderDidTapFollowersButton(_ header: ProfileInfoHeaderReusableView) {
         // show users followers
-        let vc = ListViewController(data: ["Zakaria", "Zeks", "Ziko"])
+        var mockData = [UserRelationship]()
+        for x in 0..<10{
+            mockData.append(UserRelationship(username: "@Zeks", name: "Omar Zakaria", type: x%2==0 ? .following : .not_following))
+        }
+        let vc = ListViewController(data: mockData)
         vc.title = "Followrs"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
@@ -161,7 +165,11 @@ extension ProfileViewController: ProfileInfoHeaderReusableViewDelegate{
     
     func profileHeaderDidTapFollowingButton(_ header: ProfileInfoHeaderReusableView) {
         // show users following
-        let vc = ListViewController(data: ["Zakaria", "Zeks", "Ziko"])
+        var mockData = [UserRelationship]()
+        for x in 0..<10{
+            mockData.append(UserRelationship(username: "@Zeks", name: "Omar Zakaria", type: x%2==0 ? .following : .not_following))
+        }
+        let vc = ListViewController(data: mockData)
         vc.title = "Following"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
